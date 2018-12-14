@@ -40,7 +40,11 @@ public class Catalogue implements I_Catalogue {
 
 	@Override
 	public boolean acheterStock(String nomProduit, int qteAchetee) {
+		if (qteAchetee != 0)
+		{
 		I_Produit l_Produit = new Produit(nomProduit,qteAchetee, 0);
+		lesProduits.add(l_Produit);
+		}
 		return false;
 	}
 
