@@ -70,7 +70,7 @@ public class Catalogue implements I_Catalogue {
 		
 		for (int i = 0; i < lesProduits.size(); i++) 
 		{
-			MontantTotal = lesProduits.get(i).getPrixStockTTC();
+			MontantTotal = MontantTotal + lesProduits.get(i).getPrixStockTTC();
 		}
 		return MontantTotal;
 	}
@@ -78,7 +78,7 @@ public class Catalogue implements I_Catalogue {
 	@Override
 	public void clear() 
 	{
-		lesProduits.removeAll(lesProduits);
+		lesProduits.clear();
 	}
 
 }
