@@ -6,6 +6,7 @@ import java.util.List;
 public class Catalogue implements I_Catalogue {
 	
 	private ArrayList<I_Produit> lesProduits;
+	
 
 	public Catalogue() {
 		lesProduits = new ArrayList<I_Produit>();
@@ -41,23 +42,25 @@ public class Catalogue implements I_Catalogue {
 
 	@Override
 	public boolean acheterStock(String nomProduit, int qteAchetee) {
-		boolean res = true;
 		
-		if (qteAchetee != 0)
-		{
-		I_Produit l_Produit = new Produit(nomProduit,qteAchetee, 0);
-		lesProduits.add(l_Produit);
-		}
-		else
-		{
-			res = false;;
-		}
+		boolean res = true;
+		int pos = 0;
+		pos = lesProduits.indexOf(nomProduit);
+		
+		res = lesProduits.get(pos).ajouter(qteAchetee);
 		
 		return res;
 	}
 
+	@SuppressWarnings("unlikely-arg-type")
 	@Override
 	public boolean vendreStock(String nomProduit, int qteVendue) {
+		boolean res = true;
+		int pos = 0;
+		pos = lesProduits.indexOf(nomProduit);
+		
+		res = lesProduits.get(pos).enlever(qteVendue);
+
 		
 		return false;
 	}
