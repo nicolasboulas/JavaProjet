@@ -34,8 +34,9 @@ public class Catalogue implements I_Catalogue {
 	@SuppressWarnings("unlikely-arg-type")
 	@Override
 	public boolean removeProduit(String nom) {
-		lesProduits.remove(nom);
-		return false;
+		boolean res = true;
+		res = lesProduits.remove(nom);
+		return res;
 	}
 
 	@Override
